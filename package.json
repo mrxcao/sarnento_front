@@ -1,0 +1,21 @@
+{
+  "name": "sarnento_front",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode production",
+    "preview": "vite preview",    
+    "deploy": "npm run build && xcopy /S /Y .\\dist\\*.* d:\\Projects\\sarnento_pbl\\ /MIR",
+    "d": "xcopy /S /Y .\\dist\\*.* d:\\Projects\\sarnento_pbl\\ /MIR"
+
+  },
+  "dependencies": {
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.1.0"
+  }
+}
