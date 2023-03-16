@@ -1,13 +1,10 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-
-
-
 </script>
 
 <template>
   <div>
-    logo
+    <img class="logo" src="../public/vite.svg">
   </div>
   <HelloWorld msg="Aqui terá uma página do bot" />
 </template>

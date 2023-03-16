@@ -1,17 +1,28 @@
-<script setup>
+<script >
 import { ref } from 'vue'
-
+/*
 defineProps({
   msg: String,
 })
+defineData({
+  teste: 100
+})
+*/
 
-const count = ref(0)
+export default {
+    name: 'HelloWorld',
+    data() { return {teste: 100, count: ref(10)}},    
+    props: {
+      msg: String
+    }
+  }
+
+
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
-
-  <div class="card">
+  <div class="card">    
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
       Edit
