@@ -1,3 +1,14 @@
+<template>
+
+  <router-link :to="{name:'home'}" >Home</router-link>
+  <router-link :to="{name:'login'}">Login</router-link>
+  <router-link :to="{name:'dashboard'}">Dashboard</router-link>
+  <router-view/>
+
+</template>
+
+
+<!--
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -23,3 +34,4 @@ import HelloWorld from './components/HelloWorld.vue'
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
+-->
