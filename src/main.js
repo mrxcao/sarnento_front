@@ -6,6 +6,8 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 
+
+// console.log(import.meta.env.VITE_VERSION)
 createApp(App)
 .use(VueAxios, axios)
 .use(store)
