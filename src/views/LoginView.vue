@@ -3,7 +3,7 @@
        Login
 
       <form @submit.prevent="login">
-         <input type="text" placeholder="EMail" v-model="user.email">
+         <input type="text" placeholder="EMail" v-model="user.login">
          <input type="password" placeholder="Senha" v-model="user.password">
          <button type="submit">Login</button>
 
@@ -17,18 +17,19 @@
    import { reactive } from 'vue';
 
    const user = reactive({
-      email: '',
+      login: '',
       password: ''
    })
-   async function login(){ 
+
+   async function login(){       
       try {
-         const data = await http.post('/auth',user)
-         console.log('data',data);
+        const data = await http.post('/token/login',user)
+        console.log('data',data);
       } catch (error) {
-         console.log(  error?.response?.data)
+        console.log(  error?.response?.data)
       }
 
-      console.log('login',1);
+      console.log('login',2);
    }
 </script>
   
