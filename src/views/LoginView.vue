@@ -25,11 +25,12 @@
       try {
         const data = await http.post('/token/login',user)
         console.log('data',data);
+        console.log('login',2);
       } catch (error) {
-        console.log(  error?.response?.data)
+        console.log( 'error ---', error?.response?.data)
       }
 
-      console.log('login',2);
+      
    }
 </script>
   
