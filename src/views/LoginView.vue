@@ -24,8 +24,8 @@
    async function login(){       
       try {
         const data = await http.post('/token/login',user)
-        console.log('data',data);
-        console.log('login',2);
+        console.log('data',data.data);
+        
       } catch (error) {
         console.log( 'error ---', error?.response?.data)
       }
