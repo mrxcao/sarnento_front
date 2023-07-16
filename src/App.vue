@@ -12,17 +12,20 @@
 </template>
 
 
-<!--
+
+
+
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+
+import {useAuth} from '/src/store/auth.js';
+const auth = useAuth();
+
+function logout(){
+  auth.clear();
+  router.push({name:'login'});
+}
 </script>
 
-<template>
-  <div>
-    <img class="logo" src="../public/vite.svg">
-  </div>
-  <HelloWorld msg="Aqui terá uma página do bot" />
-</template>
 
 <style scoped>
 .logo {
@@ -38,4 +41,3 @@ import HelloWorld from './components/HelloWorld.vue'
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
--->

@@ -15,6 +15,9 @@
 <script setup>
    import http from '../services/http.js'
    import { reactive } from 'vue';
+   import { useAuth } from '../store/auth.js'
+
+   const auth = useAuth();
 
    const user = reactive({
       login: '',
@@ -23,8 +26,10 @@
 
    async function login(){       
       try {
-        const data = await http.post('/token/login',user)
-        console.log('data',data.data);
+        const data = await http.post('/token/login',user)        
+        auth.setToken(data.data.token)               
+        auth.setUser(data.data.user)
+        
         
       } catch (error) {
         console.log( 'error ---', error?.response?.data)
