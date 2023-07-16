@@ -1,13 +1,15 @@
 const TerserPlugin = require("terser-webpack-plugin");
-const isProd = process.env.NODE_ENV === "production";
+const isProd = "production";
 const fs = require('fs');
 const packageJson = fs.readFileSync('./package.json');
 const versao = JSON.parse(packageJson).version || 0;
 var webpack = require('webpack');
 
+const publicPath = meta.env.VITE_APP_BASE_URL;
+
 module.exports = {
   productionSourceMap: false,
-  publicPath: process.env.VUE_APP_BASE_URL,
+  publicPath,
   transpileDependencies: ["vuetify"],
   configureWebpack: {
     optimization: {
