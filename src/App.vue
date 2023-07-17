@@ -6,15 +6,28 @@
   <li><router-link :to="{name:'home'}" >Home</router-link></li>
   <li><router-link :to="{name:'login'}">Login</router-link></li>
   <li><router-link :to="{name:'dashboard'}">Dashboard</router-link> </li>
+
+  <li>
+    
+  <template v-if="auth.isAuth()">
+        <img :src="auth.avatar">
+         Olá {{ auth.fullName }} 
+        <button @click="logout">
+          Logout
+        </button>
+      </template>
+      <template v-else>
+        Olá visitante
+      </template>
+   </li>
+
+
 </ul>
 </div>
   
   <router-view/>
 
 </template>
-
-
-
 
 
 <script setup>

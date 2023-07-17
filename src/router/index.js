@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
- import routes_ from '../router/routes.js';
+ import routes_ from './routes.js';
 
 const routes = [
   { path: '/',    name: 'home',    component: HomeView  },
@@ -13,10 +13,12 @@ const routes = [
   },
 ]
 
+
 const router = createRouter({
   history: createWebHistory('/'),
   routes
 })
+
 
  router.beforeEach(routes_);
 

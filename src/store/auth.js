@@ -1,4 +1,4 @@
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 import {defineStore } from 'pinia'
 import http from '/src/services/http.js';
 
@@ -32,12 +32,36 @@ export const useAuth = defineStore('auth', ()=> {
         }
     }
 
+    
+    function isAuth() {
+        return token.value && user.value
+    }
+
+    const fullName = computed(()=> {
+        return user.value?.username    
+    }) 
+        
+    const avatar = computed(()=> {
+        return user.value?.avatar
+    }) 
+
+    function clear() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        token.value = '';
+        user.value = '';
+      }
+
     return {
         token,
         user,
         setToken, 
         setUser,
-        checkToken
+        checkToken,
+        isAuth,
+        fullName,
+        avatar,
+        clear
     }
 
-}  )
+})

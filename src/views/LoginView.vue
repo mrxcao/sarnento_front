@@ -50,6 +50,10 @@
         const data = await http.post('/token/login',user)        
         auth.setToken(data.data.token)               
         auth.setUser(data.data.user)
+
+        //this.$router.push({name:'dashboard'});
+        //this.$router.push({ name: "Home" });
+        this.$router.push('/dashboard');
               
       } catch (error) {
         console.log( 'error ---', error?.response?.data)
@@ -62,9 +66,8 @@
 
 <style scoped>
 .templete {
-   background-color:#c2c2c2;
-   width: 100%;
-   height: 100%;
+   background-color:#f7f7f7;
+   
 }
 .login-container {
   max-width: 400px;
