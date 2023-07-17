@@ -25,12 +25,12 @@
    })
 
    async function login(){       
-      try {
+     try {
+
         const data = await http.post('/token/login',user)        
         auth.setToken(data.data.token)               
         auth.setUser(data.data.user)
-        
-        
+              
       } catch (error) {
         console.log( 'error ---', error?.response?.data)
       }

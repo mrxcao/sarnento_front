@@ -1,5 +1,6 @@
 import {ref} from 'vue';
 import {defineStore } from 'pinia'
+import http from '/src/services/http.js';
 
 export const useAuth = defineStore('auth', ()=> {
     const token = ref(localStorage.getItem('token'));
@@ -13,12 +14,30 @@ export const useAuth = defineStore('auth', ()=> {
 
     function setUser(userValue) {
         localStorage.setItem('user', JSON.stringify(userValue))
-        user.value = value
+        user.value = userValue
+    }
+
+    
+    async function checkToken() {
+        try {
+        const tokenAuth = 'Bearer ' + token.value;
+        const { data } = await http.get("/token/validar", {
+            headers: {
+                Authorization: tokenAuth,
+            },
+        });
+        return data;
+        } catch (error) {
+            console.log(error.response.data);
+        }
     }
 
     return {
+        token,
+        user,
         setToken, 
-        setUser
+        setUser,
+        checkToken
     }
 
 }  )
