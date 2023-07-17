@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Bem-vindo ao Sarnento Bot</h1>
-    <p>Mais que um bot, um amigo que interage no seu chat !</p>
+    <h3>Mais que um bot, um amigo que interage no seu chat !</h3>
     <button @click="inviteBot">Convidar o Bot</button>
 
 
