@@ -9,7 +9,7 @@
 
   <li>
     
-  <template v-if="auth.isAuth()">
+  <template v-if="auth.authOk">
         <img :src="auth.avatar">
          Olá {{ auth.fullName }} 
         <button @click="logout">
@@ -33,11 +33,12 @@
 <script setup>
 
 import {useAuth} from '/src/store/auth.js';
+import {useRouter} from 'vue-router'
 const auth = useAuth();
+const router = useRouter()
 
 function logout(){
-  auth.clear();
-  router.push({name:'login'});
+  auth.clear();  
 }
 </script>
 

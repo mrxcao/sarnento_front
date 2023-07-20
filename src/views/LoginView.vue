@@ -50,12 +50,14 @@
         const data = await http.post('/token/login',user)        
         auth.setToken(data.data.token)               
         auth.setUser(data.data.user)
+        auth.setAuthOk(true)
 
         //this.$router.push({name:'dashboard'});
         //this.$router.push({ name: "Home" });
-        this.$router.push('/dashboard');
+        // this.$router.push('/dashboard');
               
       } catch (error) {
+        auth.setAuthOk(false)
         console.log( 'error ---', error?.response?.data)
       }
 
