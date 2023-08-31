@@ -1,10 +1,21 @@
+import { resolve, win32, posix } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [vue()],
-  publicPath: 'https://btramos.com/sarnento/',
-  // base: "https://btramos.com/sarnento/"
-  
+  root: './',
+  build: {  
+    build:'dist',
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 730, // vuetify
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        // nested: resolve(__dirname, 'sarnento/index.html'),
+      },
+      
+    },
+  },
 })

@@ -1,9 +1,10 @@
 <template>
     <div class="home">
-       dashboard
+       comandos
     </div>
   </template>
+  
+  <script>
 
-<script>
-
-</script>
+  </script>
+  

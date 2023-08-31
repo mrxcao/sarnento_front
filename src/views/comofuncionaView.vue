@@ -1,9 +1,10 @@
 <template>
     <div class="home">
-       dashboard
+       como funciona
     </div>
   </template>
+  
+  <script>
 
-<script>
-
-</script>
+  </script>
+  

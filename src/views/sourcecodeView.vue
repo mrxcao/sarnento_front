@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-       dashboard
+       source code
     </div>
   </template>
 
