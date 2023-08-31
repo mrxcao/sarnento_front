@@ -1,14 +1,13 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const apiSarnento = import.meta.env.VITE_API_SARNENTO
+const apiSarnento = import.meta.env.VITE_API_SARNENTO;
 
 const axiosInstance = axios.create({
-    baseURL: apiSarnento, 
-    headers: {
-        'Content-Type': 'application/json'
-    }
-    
-})
+  baseURL: apiSarnento,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 
+});
 
-export default axiosInstance
+export default axiosInstance;
