@@ -31,19 +31,35 @@
       </template>
 
   </div>
+
 </div>
 
-  <router-view/>
+<router-view class="router-content" />
 
+<div class="footer" >
+    <span :title = "status.apiInfo" >Status:</span>
+    <template v-if="auth.authOk">
+      <span  class="bolinha-verde"></span>
+    </template>
+    <template v-else>
+      <span  class="bolinha-vermelha"></span>
+    </template>
+
+</div>
 </template>
 
 <script setup>
-
-// import { useRouter } from 'vue-router';
+import { onMounted } from 'vue';
 import { useAuth } from './store/auth';
+import { useStatus } from './store/status';
 
 const auth = useAuth();
-// const router = useRouter();
+const status = useStatus();
+
+onMounted(() => {
+//  console.log('2-1- onMounted el.value', status.statusApi);
+  status.checkStatus();
+});
 
 function logout() {
   auth.clear();
@@ -51,38 +67,5 @@ function logout() {
 
 </script>
 
-<style scoped>
-.avatar {
-  width: 40px;
-}
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-.right-div {
-  align-self: flex-end;
-  vertical-align: middle ;
-}
-.button-link {
-  display: inline-block;
-  padding: 1px 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-}
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style lang="scss" scoped>
 </style>

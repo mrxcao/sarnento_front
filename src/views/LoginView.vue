@@ -9,10 +9,9 @@
         <input type="text" placeholder="EMail" v-model="user.login" required>
       </div>
       <div class="form-group">
-        <label for="password">Senha: </label>        
+        <label for="password">Senha: </label>
         <input type="password" placeholder="Senha" v-model="user.password" required>
       </div>
-      
       <button type="submit">Login</button>
     </form>
   </div>
@@ -29,47 +28,42 @@
     </div>
     -->
 
-   </div>    
+   </div>
   </template>
-  
+
 <script setup>
-   import http from '../services/http.js'
-   import { reactive } from 'vue';
-   import { useAuth } from '../store/auth.js'
+import { reactive } from 'vue';
+import http from '../services/http';
+import { useAuth } from '../store/auth';
 
-   const auth = useAuth();
+const auth = useAuth();
 
-   const user = reactive({
-      login: '',
-      password: ''
-   })
+const user = reactive({
+  login: '',
+  password: '',
+});
 
-   async function login(){       
-     try {
+async function login() {
+  try {
+    const data = await http.post('/token/login', user);
+    auth.setToken(data.data.token);
+    auth.setUser(data.data.user);
+    auth.setAuthOk(true);
 
-        const data = await http.post('/token/login',user)        
-        auth.setToken(data.data.token)               
-        auth.setUser(data.data.user)
-        auth.setAuthOk(true)
-
-        //this.$router.push({name:'dashboard'});
-        //this.$router.push({ name: "Home" });
-        // this.$router.push('/dashboard');
-              
-      } catch (error) {
-        auth.setAuthOk(false)
-        console.log( 'error ---', error?.response?.data)
-      }
-
-      
-   }
+    // this.$router.push({name:'dashboard'});
+    // this.$router.push({ name: "Home" });
+    // this.$router.push('/dashboard');
+  } catch (error) {
+    auth.setAuthOk(false);
+    console.log('error ---', error?.response?.data);
+  }
+}
 </script>
-  
 
 <style scoped>
 .templete {
    background-color:#f7f7f7;
-   
+
 }
 .login-container {
   max-width: 400px;
@@ -80,7 +74,7 @@
 }
 
 .form-group {
-  display: inline-flex;  
+  display: inline-flex;
   align-items: center;
   margin-bottom: 10px;
 }

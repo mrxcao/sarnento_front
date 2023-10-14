@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import http from '../services/http';
 import router from '../router';
 
+// eslint-disable-next-line import/prefer-default-export
 export const useAuth = defineStore('auth', () => {
   const token = ref(localStorage.getItem('token'));
   const user = ref(JSON.parse(localStorage.getItem('user')));
@@ -20,6 +21,15 @@ export const useAuth = defineStore('auth', () => {
   function setUser(userValue) {
     localStorage.setItem('user', JSON.stringify(userValue));
     user.value = userValue;
+  }
+
+  function clear() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    token.value = '';
+    user.value = '';
+    setAuthOk(false);
+    router.push({ name: 'home' });
   }
 
   async function checkToken() {
@@ -44,15 +54,6 @@ export const useAuth = defineStore('auth', () => {
   const fullName = computed(() => user.value?.username);
 
   const avatar = computed(() => user.value?.avatar);
-
-  function clear() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    token.value = '';
-    user.value = '';
-    setAuthOk(false);
-    router.push({ name: 'home' });
-  }
 
   return {
     token,

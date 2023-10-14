@@ -19,25 +19,25 @@ const count = ref(0);
 // lifeCycle
 
 onBeforeMount(() => {
-  console.log('onBeforeMount');
+  console.log('1 onBeforeMount');
 });
 onMounted(() => {
-  el.value; // <div>
-  console.log('el.value', el.value);
+  // el.value; // <div>
+  console.log('2 onMounted el.value', el.value);
 });
 
 onBeforeUnmount(() => {
-  console.log('onBeforeUnmount');
+  console.log('3 onBeforeUnmount');
 });
 onUnmounted(() => {
-  console.log('onUnmounted');
+  console.log('4 onUnmounted');
 });
 
 onBeforeUpdate(() => {
-  console.log('onBeforeUpdate');
+  console.log('5 onBeforeUpdate');
 });
 onUpdated(() => {
-  console.log(document.getElementById('count').textContent);
+  console.log('6 onUpdated', document.getElementById('count').textContent);
 });
 
 </script>
