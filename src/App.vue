@@ -38,7 +38,7 @@
 
 <div class="footer" >
     <span :title = "status.apiInfo" >Status:</span>
-    <template v-if="auth.authOk">
+    <template v-if="status.statusApi">
       <span  class="bolinha-verde"></span>
     </template>
     <template v-else>
