@@ -26,8 +26,8 @@ function Login() {
                 }
             })
             .catch(err => {
-                // console.log('Login error',err);
-                setError('Login falhou'+err)
+                //console.log('Login error',err);
+                setError('Login ou senha inváldo')
                 
             })
             
