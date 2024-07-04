@@ -1,6 +1,7 @@
 {
   "name": "sarnento_front",
   "version": "1.0.0",
+  "homepage": "/admin",
   "description": "A react frontend for discord's bot called Sarnento",
   "main": "scr\\indes.js",
   "directories": {
@@ -9,6 +10,7 @@
   "scripts": {
     "start": "cross-env PORT=3001 react-scripts --openssl-legacy-provider start PORT=3001 ",
     "build": "react-scripts --openssl-legacy-provider build",
+    "deploy": "node deploy.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -19,6 +21,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
+    "basic-ftp": "^5.0.5",
     "dotenv": "^16.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

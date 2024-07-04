@@ -24,23 +24,23 @@ function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact>
+                <Route path="/admin/" exact>
                     <Home />
                 </Route>
-                <Route path="/comandos" exact>
+                <Route path="/admin/comandos" exact>
                     <Comandos />
                 </Route>
-                <Route path="/comofunciona" exact>
+                <Route path="/admin/comofunciona" exact>
                     <Comofunciona />
                 </Route>
-                <Route path="/sourcecode" exact>
+                <Route path="/admin/sourcecode" exact>
                     <Sourcecode />
                 </Route>
 
-                <Route path="/login" exact>
+                <Route path="/admin/login" exact>
                     <Login />
                 </Route>            
-                <PrivateRoute path="/settings">
+                <PrivateRoute path="/admin/settings">
                     <Settings />
                 </PrivateRoute>
                 
