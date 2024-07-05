@@ -22,11 +22,11 @@ function Login() {
             .then(isValid => {
                 if (isValid) {
                     localStorage.setItem('token', isValid.token)    
-                    history.push('/')
+                    history.push('/admin/')
                 }
             })
             .catch(err => {
-                //console.log('Login error',err);
+                console.log('Login error',err);
                 setError('Login ou senha inváldo')
                 
             })

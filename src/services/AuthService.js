@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const API_URL = process.env.REACT_APP_NODE_ENV=='Development' ?  process.env.REACT_APP_API_URL_DEV  :  process.env.REACT_APP_API_URL;
 
 export async function doLogin(login, password) {
@@ -11,7 +10,7 @@ export async function doLogin(login, password) {
 
 export async function doLogout() {
     const logoutUrl = `${API_URL}/token/logout`;
-    const headers = { 'authorization': localStorage.getItem('token') };
+    const headers = { 'authorization': `Bearer ${localStorage.getItem('token')} ` };
     const response = await axios.post(logoutUrl, {}, { headers });
     return response.data;
 }

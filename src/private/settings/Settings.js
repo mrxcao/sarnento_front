@@ -7,22 +7,19 @@ import { getSettings } from '../../services/SettingsService';
 
 function Settings() {
     const [settings, setSettings] = useState({
-        email:''
+        lastUpTime:''
     })
 
 
     useEffect(()=>{
         const token = localStorage.getItem('token');
         
-        getSettings(token)
-          .then(resp=> {
+        getSettings(token).then(resp=> {
             setSettings(resp)
-            inputEmail.current.value = settings.email;
            // document.getElementById('email').removeAttribute('readOnly');
-          })
-          .catch(err=> {
+          }).catch(err=> {
             if (err.response && err.response.status === 401)
-                    return history.push('/')
+                    return history.push('admin/')
             setError(err)
           })
     }, [])
@@ -101,53 +98,6 @@ function Settings() {
                                             <label htmlFor="email_">Email</label>
                                             <input ref={inputEmail} className="form-control" id="email_"
                                                    type="email" placeholder="name@company.com" autoComplete="off" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-6 mb-3">
-                                        <div>
-                                            <label htmlFor="newPassword_">New Password</label>
-                                            <input ref={inputNewPassword} className="form-control" id="newPassword_" type="password" placeholder="Enter your new password" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 mb-3">
-                                        <div>
-                                            <label htmlFor="confirmPassword">Confirm Password</label>
-                                            <input ref={inputConfirmPassword} className="form-control" id="confirmPassword" type="password" placeholder="Your new password again" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <h2 className="h5 mb-4">Exchange Info</h2>
-                                <div className="row">
-                                    <div className="col-sm-12 mb-3">
-                                        <div className="form-group">
-                                            <label htmlFor="email">API URL</label>
-                                            <input ref={inputApiUrl} className="form-control" id="apiUrl" type="text" placeholder="Your API URL" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-12 mb-3">
-                                        <div className="form-group">
-                                            <label htmlFor="streamUrl">STREAM URL</label>
-                                            <input ref={inputStreamUrl} className="form-control" id="streamUrl" type="text" placeholder="Your stream URL" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-12 mb-3">
-                                        <div className="form-group">
-                                            <label htmlFor="email">Access Key</label>
-                                            <input ref={inputAccessKey} className="form-control" id="accessKey" type="text" placeholder="Your access key" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-12 mb-3">
-                                        <div className="form-group">
-                                            <label htmlFor="email">Secret Key</label>
-                                            <input ref={inputSecretKey} className="form-control" id="accessKey" type="password" placeholder="Your secret key" />
                                         </div>
                                     </div>
                                 </div>

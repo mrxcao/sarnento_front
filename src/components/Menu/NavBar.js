@@ -8,7 +8,7 @@ function NavBar() {
   function onLogoutClick(event) {
     doLogout()
     localStorage.removeItem('token')
-    history.push('/login')
+    history.push('/admin/login')
   //  alert(event)
   }
 
@@ -34,9 +34,10 @@ function NavBar() {
 
         {localStorage.getItem("token") && 
           <button onClick={onLogoutClick}>logout</button>}
-        {localStorage.getItem("token") == null&& <Link to="/login">        
+        {localStorage.getItem("token") == null && 
+        <Link to="/admin/login">        
           <button className="login-button">Login</button>        
-        </Link>     }
+        </Link>    }
         
         
         
