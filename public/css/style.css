@@ -6,6 +6,12 @@ body {
   font-family: 'Futura'; 
   font-size:large;
 }
+.center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
 .loginLeft {
     margin-top: 30px;
@@ -32,7 +38,7 @@ header {
     padding: 10px;
     background-color: #efefef;
     color: #817d7d;
-  }
+}
   
   nav ul {
     list-style: none;
@@ -92,28 +98,27 @@ header {
 
   .testimonial-section {
     display: flex;
-    align-items: center; /* Alinha verticalmente os itens se um deles for mais alto */
+    align-items: center; 
     padding: 10px;
   }
   
   .testimonial-name {
-    flex: 1; /* Dá à coluna do nome menos espaço */
-    font-weight: bold; /* Opcional: torna o nome em negrito */
-    margin-right: 20px; /* Espaço entre o nome e o depoimento */
+    flex: 1; 
+    font-weight: bold; 
+    margin-right: 20px; 
   }
   
   .testimonial-text {
-    flex: 3; /* Dá à coluna do depoimento mais espaço */
+    flex: 3; 
   }
   .ul-items {
     list-style-type: none;
   }
 
   input, textarea {
-    border-radius: 10px; /* Ajuste este valor para aumentar ou diminuir a curvatura */
-    border: 1px solid #ccc; /* Aparência da borda */
-    padding: 10px; /* Espaçamento interno para o texto não ficar muito próximo da borda */
-  
+    border-radius: 10px; 
+    border: 1px solid #ccc; 
+    padding: 10px;   
     width: 100%;
   }
 
@@ -141,6 +146,23 @@ header {
     color: #3a52bf;    
     text-align: center;
   }
+  .status-indicator {
+    display: inline-block;
+    width: 20px; 
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-ok {
+    background-color: rgb(110, 190, 110);
+}
+
+.status-not-ok {
+    background-color: rgb(179, 101, 101);
+}
+
+
   h1 {
     color: #3a52bf;    
   }

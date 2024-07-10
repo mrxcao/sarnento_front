@@ -7,3 +7,8 @@ export async function getSettings(authorization) {
     return response.data;
 }
 
+export async function getStatus(authorization) {    
+    const headers = {authorization: authorization}
+    const response = await axios.get(`${API_URL}/status`,{headers} );
+    return response.data;
+}

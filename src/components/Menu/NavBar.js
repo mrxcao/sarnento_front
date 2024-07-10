@@ -20,13 +20,13 @@ function NavBar() {
           <img className="navbar-brand-light" src="img/favicon/favicon.png" alt="CryptoDog" />
            <span className="appTitle">Sarnento</span>
         </Link>
-        <Link className="navbar-brand me-lg-5" to="/comandos">
+        <Link className="navbar-brand me-lg-5" to="/admin/comandos">
         Comandos
         </Link>        
-        <Link className="navbar-brand me-lg-5" to="/comofunciona">
+        <Link className="navbar-brand me-lg-5" to="/admin/comofunciona">
         Como funciona?
         </Link>                
-        <Link className="navbar-brand me-lg-5" to="/sourcecode">
+        <Link className="navbar-brand me-lg-5" to="/admin/sourcecode">
         Código Fonte
         </Link>       
 

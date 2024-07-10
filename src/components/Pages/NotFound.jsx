@@ -17,7 +17,7 @@ const NotFound = () => {
                             <div className="row">
                                 <div className="col-md-4 loginLeft" >
                                     <div className="text-center">
-                                        <img className="img-fluid w-50" src="admin/img/404.svg" alt="404 not found" />
+                                        <img className="img-fluid w-50" src="img/404.svg" alt="404 not found" />
                                     </div>                            
                                     <div className="text-center text-md-center mb-4 mt-md-0">
                                         <h1 className="mb-0 h3 alertTitle">NOT FOUND</h1>                                        

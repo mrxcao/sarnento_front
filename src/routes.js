@@ -4,6 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 //import Orders from './private/Orders/Orders';
 import NotFound from './components/Pages/NotFound';
 import Settings from './private/Settings/Settings';
+import Dashboard from './private/Dashboard/Dashboard';
 import Comandos from './public/Comandos/Comandos';
 import Comofunciona from './public/Comofunciona/Comofunciona';
 import Home from './public/Home/Home';
@@ -43,7 +44,9 @@ function Routes() {
                 <PrivateRoute path="/admin/settings">
                     <Settings />
                 </PrivateRoute>
-                
+                <PrivateRoute path="/admin/dashboard">
+                    <Dashboard />
+                </PrivateRoute>                
                 {/* <PrivateRoute path="/orders/:symbol?">
                     <Orders />
                 </PrivateRoute>
