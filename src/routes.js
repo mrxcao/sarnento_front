@@ -3,7 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 //import Dashboard from './private/Dashboard/Dashboard';
 //import Orders from './private/Orders/Orders';
 import NotFound from './components/Pages/NotFound';
-import Settings from './private/settings/Settings';
+import Settings from './private/Settings/Settings';
 import Comandos from './public/Comandos/Comandos';
 import Comofunciona from './public/Comofunciona/Comofunciona';
 import Home from './public/Home/Home';

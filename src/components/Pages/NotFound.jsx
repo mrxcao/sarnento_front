@@ -17,7 +17,7 @@ const NotFound = () => {
                             <div className="row">
                                 <div className="col-md-4 loginLeft" >
                                     <div className="text-center">
-                                        <img className="img-fluid w-50" src="/img/404.svg" alt="404 not found" />
+                                        <img className="img-fluid w-50" src="admin/img/404.svg" alt="404 not found" />
                                     </div>                            
                                     <div className="text-center text-md-center mb-4 mt-md-0">
                                         <h1 className="mb-0 h3 alertTitle">NOT FOUND</h1>                                        
@@ -31,7 +31,7 @@ const NotFound = () => {
                         </div>                         
                     </div>
                     <p className="text-center">
-                        <Link to="/" className="d-flex align-items-center justify-content-center"><svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
+                        <Link to="/admin/" className="d-flex align-items-center justify-content-center"><svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
                             voltar para a homepage
                         </Link>
                     </p>

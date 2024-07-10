@@ -8,10 +8,10 @@ function Home() {
         <Menu />
         </header>
         <main className="content">
-        <section class="sec-1">
+        <section className="sec-1">
         <div className="container mt-5">
           <div className="row">
-            <d  iv className="col-lg-6">
+            <div className="col-lg-6">
               
               <br />
               <br />
@@ -25,7 +25,7 @@ function Home() {
 
 
               
-            </d>
+            </div>
             <div className="col-lg-6">              
               <img src="img/sarnento/1.png" />
             </div>
@@ -36,11 +36,11 @@ function Home() {
 
         <section>        
           <h3>Co​mo assim?</h3>
-          <div class="section">                      
-              <div class="column">      
+          <div className="section">                      
+              <div className="column">      
                 <img src="img/sarnento/2.png" />
               </div>
-              <div class="column">              
+              <div className="column">              
                 <p>
                 Além dos comandos de bot que ​todos tem, ele ainda fica atento ao ​que está acontecendo no seu ​servidor e reage aos comentários. ​Em breve, você poderá cadastrar ​suas​ ​próprias reações
                 </p>
@@ -52,20 +52,20 @@ function Home() {
         </section>
 
         <h3>O que mais?</h3>
-        <section class="sec-1">        
+        <section className="sec-1">        
         
-          <div class="section">                      
-            <div class="column">
+          <div className="section">                      
+            <div className="column">
               <img src="img/sarnento/3.png" /><br />
               <br />
               <h4>Co​mandos</h4>
 os tradicionais comandos de ​todos os bots e ainda uns com ​informações como cotação ​financei​ra e resultados de loteria</div>
-            <div class="column">
+            <div className="column">
               <img src="img/sarnento/4.png" /><br />
               <br />
               <h4>  No​tificação de ações</h4>
 Informe aos seus amigos quando ​alguém entrar numa call ou ​começar a transmitir a tela no ​Discor​d</div>
-            <div class="column">
+            <div className="column">
               <img src="img/sarnento/5.png" /><br />
               <br />
               <h4> Se​mpre online</h4>
@@ -78,24 +78,24 @@ Ele sempre te responderá se ​chamar​ por ele (em construção) </div>
         <section>
           <h3>Depoimentos</h3>
 
-            <div class="testimonial-section">
-              <div class="testimonial-name">@MRXCAO </div>
-              <div class="testimonial-text">“Meu bot favorito que já fiz até hoje”</div>
+            <div className="testimonial-section">
+              <div className="testimonial-name">@MRXCAO </div>
+              <div className="testimonial-text">“Meu bot favorito que já fiz até hoje”</div>
             </div>
 
-            <div class="testimonial-section">
-              <div class="testimonial-name">MARIANA CRUZ </div>
-              <div class="testimonial-text">“Depois que usei o Sarnento,, nunca mais meu ​servidor do Discord foi de F”</div>
+            <div className="testimonial-section">
+              <div className="testimonial-name">MARIANA CRUZ </div>
+              <div className="testimonial-text">“Depois que usei o Sarnento,, nunca mais meu ​servidor do Discord foi de F”</div>
             </div>          
 
 
-            <div class="testimonial-section">
-              <div class="testimonial-name">FERNANDO SOUZA </div>
-              <div class="testimonial-text">“Às vezes fico conversando com ele … e ás vezes ​ele responde”</div>
+            <div className="testimonial-section">
+              <div className="testimonial-name">FERNANDO SOUZA </div>
+              <div className="testimonial-text">“Às vezes fico conversando com ele … e ás vezes ​ele responde”</div>
             </div>
         </section>
         <br />
-        <section class="sec-2"> 
+        <section className="sec-2"> 
           <img src="img/sarnento/6.png" /><br />
           <br />
           Como podemos melhorar?<br />
@@ -104,12 +104,12 @@ Ele sempre te responderá se ​chamar​ por ele (em construção) </div>
           <br />
         </section>
 
-        <section class="sec-3">
-        <div class="section">                      
-            <div class="column">
+        <section className="sec-3">
+        <div className="section">                      
+            <div className="column">
             <img src="img/sarnento/7.png" />
             </div>
-            <div class="column">
+            <div className="column">
               <h3>Quer saber mais?</h3>
               <br />              
               <ul className="ul-items">

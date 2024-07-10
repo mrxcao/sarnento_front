@@ -18,7 +18,7 @@ function NavBar() {
       <nav >      
         <Link className="navbar-brand me-lg-5" to="/">
           <img className="navbar-brand-light" src="img/favicon/favicon.png" alt="CryptoDog" />
-           <spam className="appTitle">Sarnento</spam>
+           <span className="appTitle">Sarnento</span>
         </Link>
         <Link className="navbar-brand me-lg-5" to="/comandos">
         Comandos

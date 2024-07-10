@@ -1,14 +1,14 @@
-{
-    "name": "",
-    "short_name": "",
-    "icons": [
-        {
-            "src": "/android-chrome-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#ffffff",
+{"name": "Sarnento Discord Bot",
+    "short_name": "Sarnento",
+    "start_url": "admin/",
+    "display": "standalone",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "theme_color": "#000000",
+    "icons": [
+      {
+        "src": "android-chrome-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      }
+    ]
 }
