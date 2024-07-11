@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "cross-env PORT=3001 react-scripts --openssl-legacy-provider start PORT=3001 ",
-    "build": "NODE_ENV=production react-scripts --openssl-legacy-provider build",
+    "build": "react-scripts --openssl-legacy-provider build",
     "deploy": "npm run build && node deploy.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

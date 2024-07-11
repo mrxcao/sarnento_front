@@ -5,11 +5,11 @@ import { getStatus } from '../../services/SettingsService';
 function Dashboard() {
 
     const [status, setStatus] = useState({
-        STATUS: "",
-        uptime: "",
-        Users: null,
-        Servers: null,
-        lastUptime: ""
+        STATUS: '',
+        uptime: '',
+        Users: 0,
+        Servers: 0,
+        lastUptime: 'null'
     })
 
     const inputSTATUS = useRef('');
@@ -39,7 +39,7 @@ function Dashboard() {
                 </div>
                 <div className="row">
                     <div className="col-8">
-                        <div className="card card-body border-0 shadow d-flex align-items-center">
+                        <div className="card card-body border-0 shadow d-flex ">
                             <h4>API</h4> 
                             <div className="row">
                             <div className="col-1 align-items-left">                        
@@ -48,7 +48,7 @@ function Dashboard() {
                                     }`} ></span>                    
                             </div>
                             <div className="col-11">                        
-                                <span > Uptime: {status.uptime}</span>
+                                <span >{status.uptime}</span>
                             </div>
                             </div>
                         </div>

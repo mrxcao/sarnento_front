@@ -57,7 +57,7 @@ function Login() {
                             <div className="row">
                                 <div className="col-md-4 loginLeft" >
                                     <div className="text-center">
-                                        <img src="/img/favicon/favicon.png" alt="CryptoSniffer" width={64} />
+                                        <img src="/admin/img/favicon/favicon.png" alt="CryptoSniffer" width={64} />
                                     </div>                            
                                     <div className="text-center text-md-center mb-4 mt-md-0">
                                         <h1 className="mb-0 h3 alertTitle">LOGIN</h1>
