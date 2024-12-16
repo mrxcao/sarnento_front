@@ -1,6 +1,5 @@
 {"name": "Sarnento Discord Bot",
     "short_name": "Sarnento",
-    "start_url": "admin/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",

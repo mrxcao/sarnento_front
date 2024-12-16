@@ -1,7 +1,6 @@
 {
   "name": "sarnento_front",
   "version": "1.0.0",
-  "homepage": "/admin/",
   "description": "A react frontend for discord's bot called Sarnento",
   "main": "scr\\indes.js",
   "directories": {

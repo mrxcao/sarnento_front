@@ -25,26 +25,26 @@ function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/admin/" exact>
+                <Route path="/" exact>
                     <Home />
                 </Route>
-                <Route path="/admin/comandos" exact>
+                <Route path="/comandos" exact>
                     <Comandos />
                 </Route>
-                <Route path="/admin/comofunciona" exact>
+                <Route path="/comofunciona" exact>
                     <Comofunciona />
                 </Route>
-                <Route path="/admin/sourcecode" exact>
+                <Route path="/sourcecode" exact>
                     <Sourcecode />
                 </Route>
 
-                <Route path="/admin/login" exact>
+                <Route path="/login" exact>
                     <Login />
                 </Route>            
-                <PrivateRoute path="/admin/settings">
+                <PrivateRoute path="/settings">
                     <Settings />
                 </PrivateRoute>
-                <PrivateRoute path="/admin/dashboard">
+                <PrivateRoute path="/dashboard">
                     <Dashboard />
                 </PrivateRoute>                
                 {/* <PrivateRoute path="/orders/:symbol?">

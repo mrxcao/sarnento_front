@@ -3,6 +3,7 @@
 //}
 const ftp = require("basic-ftp")
 const path = require("path")
+const apagar = false
 // const fs = require("fs")
 
 async function deploy() {
@@ -33,7 +34,7 @@ async function deploy() {
 
 async function uploadDirectory(client, localPath, remotePath) {
     await client.ensureDir(remotePath)
-    await client.clearWorkingDir()
+    if (apagar) await client.clearWorkingDir()
     await client.uploadFromDir(localPath)
 }
 

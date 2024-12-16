@@ -8,7 +8,7 @@ function NavBar() {
   function onLogoutClick(event) {
     doLogout()
     localStorage.removeItem('token')
-    history.push('/admin/login')
+    history.push('/login')
   //  alert(event)
   }
 
@@ -20,13 +20,13 @@ function NavBar() {
           <img className="navbar-brand-light" src="img/favicon/favicon.png" alt="CryptoDog" />
            <span className="appTitle">Sarnento</span>
         </Link>
-        <Link className="navbar-brand me-lg-5" to="/admin/comandos">
+        <Link className="navbar-brand me-lg-5" to="/comandos">
         Comandos
         </Link>        
-        <Link className="navbar-brand me-lg-5" to="/admin/comofunciona">
+        <Link className="navbar-brand me-lg-5" to="/comofunciona">
         Como funciona?
         </Link>                
-        <Link className="navbar-brand me-lg-5" to="/admin/sourcecode">
+        <Link className="navbar-brand me-lg-5" to="/sourcecode">
         Código Fonte
         </Link>       
 
@@ -35,7 +35,7 @@ function NavBar() {
         {localStorage.getItem("token") && 
           <button onClick={onLogoutClick}>logout</button>}
         {localStorage.getItem("token") == null && 
-        <Link to="/admin/login">        
+        <Link to="/login">        
           <button className="login-button">Login</button>        
         </Link>    }
         
