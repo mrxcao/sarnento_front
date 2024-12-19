@@ -21,8 +21,10 @@ function Login() {
         doLogin(login, password)
             .then(isValid => {
                 if (isValid) {
+                    console.log("isValid", isValid);
                     localStorage.setItem('token', isValid.token)    
-                    history.push('/admin/')
+                    localStorage.setItem('user', isValid.user)  
+                    history.push('/dashboard')
                 }
             })
             .catch(err => {

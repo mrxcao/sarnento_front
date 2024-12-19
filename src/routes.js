@@ -6,10 +6,13 @@ import NotFound from './components/Pages/NotFound';
 import Settings from './private/Settings/Settings';
 import Dashboard from './private/Dashboard/Dashboard';
 import Comandos from './public/Comandos/Comandos';
+import Role from './public/Role/Role';
 import Comofunciona from './public/Comofunciona/Comofunciona';
 import Home from './public/Home/Home';
 import Login from './public/Login/Login';
 import Sourcecode from './public/Sourcecode/Sourcecode';
+import PrivacyPolicy from './public/PrivacyPolicy/PrivacyPolicy';
+import TermsOfService from './public/TermsOfService/TermsOfService';
 function Routes() {
 
     function PrivateRoute({ children, ...rest }) {
@@ -37,10 +40,20 @@ function Routes() {
                 <Route path="/sourcecode" exact>
                     <Sourcecode />
                 </Route>
-
+                <Route path="/role" exact>
+                    <Role />
+                </Route>
+                <Route path="/privacypolicy" exact>
+                    <PrivacyPolicy />
+                </Route>
+                <Route path="/termsofservice" exact>
+                    <TermsOfService />
+                </Route>
+                
                 <Route path="/login" exact>
                     <Login />
-                </Route>            
+                </Route>  
+
                 <PrivateRoute path="/settings">
                     <Settings />
                 </PrivateRoute>
