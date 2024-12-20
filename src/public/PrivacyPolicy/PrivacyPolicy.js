@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from '../../components/Menu/Menu';
 function Comandos() {
 
-const email = 'admin@sarnento.app.br'
+const email = 'contato@sarnento.app.br'
 const ultimaAtualizacao = '19/12/2024'
 
       return (
