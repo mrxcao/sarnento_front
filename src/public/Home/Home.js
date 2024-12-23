@@ -1,6 +1,37 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Menu from '../../components/Menu/Menu';
+import { getStatus } from '../../services/SettingsService';
+
 function Home() {
+
+
+    const [status, setStatus] = useState({
+        STATUS: '',
+        uptime: '',
+        Users: 0,
+        Servers: 0,
+        lastUptime: 'null'
+    })
+
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token');
+       
+        getStatus(token).then(resp=> {
+            setStatus(resp)
+           // document.getElementById('email').removeAttribute('readOnly');
+          }).catch(err=> {
+            if (err.response && err.response.status === 401)
+                    return history.push('admin/')
+            setError(err)
+          })
+    }, [])    
+
+    const formatUserCount = (count) => {
+      const threshold = Math.floor(count / 1000) * 1000;
+      return `Mais de ${threshold/1000} MIL usuários`;
+    };    
+
       return (
       <React.Fragment>
         
@@ -31,8 +62,45 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <div className="row sec-1-1">
+          <div className="col-4">
+              <div className="card card-body border-0 shadow d-flex ">
+                  <div className="row">
+                  <div className="col-1 align-items-left">                        
+                      <span className={`status-indicator ${
+                              status.STATUS === 'ok' ? 'status-ok' : 'status-not-ok'
+                          }`} ></span>                    
+                  </div>
+                  <div className="col-11">                        
+                    <h4 hidden={status.STATUS !== 'ok'} className="status-text" title={'UPTIME: '+status.uptime}  >Sarnento tá ON! </h4>
+                      
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div className="col-3">
+              <div className="card card-body border-0 shadow  d-flex justify-content-center align-items-center">
+                  <div className="text-center">
+                      <h4>Em {status.Servers} servidores</h4> 
+                  </div>
+              </div>
+          </div>
+          <div className="col-4">
+              <div className="card card-body border-0 shadow d-flex justify-content-center align-items-center">
+                  <div className="text-center">
+                      <h4 title={status.Users}>
+                      {status.Users > 0 && formatUserCount(status.Users)}
+                      </h4>
+                  </div>
+              </div>
+          </div>                    
+          
+        </div>
+
         </section>
         <br />
+
 
         <section>        
           <h3>Co​mo assim?</h3>
