@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Menu from '../../components/Menu/Menu';
 import { getStatus } from '../../services/SettingsService';
 
@@ -21,9 +21,11 @@ function Home() {
             setStatus(resp)
            // document.getElementById('email').removeAttribute('readOnly');
           }).catch(err=> {
+            /*
             if (err.response && err.response.status === 401)
                     return history.push('admin/')
             setError(err)
+            */
           })
     }, [])    
 
@@ -63,7 +65,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="row sec-1-1">
+        <div className="row sec-1-1" hidden={status.STATUS !== 'ok'}>
           <div className="col-4">
               <div className="card card-body border-0 shadow d-flex ">
                   <div className="row">
