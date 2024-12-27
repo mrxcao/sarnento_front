@@ -22,16 +22,25 @@ function SourceCode() {
 
         <div className="container mt-5">
 
-              
-              
-              <h3>Código fonte</h3>
-              
+              <h4> Sarnento: O que faz</h4>
+              <p>É um bot para Discord com diversas funcionalidades. Ele serve para:</p>
+              <ul>
+                <li>Executar comandos com prefixos e hash: Isso permite que os usuários interajam com o bot através de comandos específicos.  </li>
+                <li>Reagir a mensagens no chat: O bot pode ser programado para responder de forma automática a certas mensagens.</li>
+                <li>Responder a menções usando IA: O bot utiliza inteligência artificial (IA) para responder a menções, com suporte para ChatGPT, Gemini e Copilot.</li>
+              </ul>
+
+              <p>Para manutenção e futuras funcionalidades, também é oferecido</p>
+              <ul>
+                <li>API REST: Uma API REST possibilita a manutenção e configuração do bot externamente.</li>
+                <li>Integrar com Telegram e WhatsApp: O bot pode ser usado para consultas e comandos através desses aplicativos.</li>
+              </ul>
+
+              <h4>Código fonte</h4>
+              <p>O bot foi desenvolvido usando JavaScript, HTML  e CSS. A versão atual do bot é a versão 2, utilizando DiscordJS 14.</p>
               <p> Todos os códigos estão disponíveis no GitHub</p>
 
-              <p> <a href="https://discord.bots.gg/bots/722913076344782858" target="_blank">discord.bots.gg Sarnento</a></p>
-              <p> <a href="https://discord.gg/zyfruVFVEW" target="_blank">Servidor de Suporte</a>   </p>
-    
-              
+             
       <table className="table table-striped">
         <thead>
           <tr>
@@ -52,21 +61,13 @@ function SourceCode() {
           ))}
         </tbody>
       </table>
-
-            <h4> Informações técnicas:</h4>
-            
-      <table className="table table-striped">
-        <tbody>
-          {informacoes.map((item) => (
-            <tr key={item.col1}>
-              <td>{item.col1}</td>
-              <td>{item.col2}</td>              
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-          <p>* Para mais informações, por favor, entre em contato</p>
+          <p>Para mais informações, por favor, entre em contato</p>
+          <h4>mais informações</h4>
+          <ul>
+            <li><a href ="contato@sarnento.app.br" target="_blank">contato@sarnento.app.br</a></li>
+            <li><a href="https://discord.bots.gg/bots/722913076344782858" target="_blank">discord.bots.gg Sarnento</a></li>
+            <li><a href="https://discord.gg/zyfruVFVEW" target="_blank">Servidor de Suporte</a>  </li>
+          </ul>
         </div>
 
             
