@@ -12,3 +12,9 @@ export async function getStatus(authorization) {
     const response = await axios.get(`${API_URL}/status`,{headers} );
     return response.data;
 }
+
+export async function updateSettings(props, authorization) {    
+    const headers = {authorization}
+    const response = await axios.put(`${API_URL}/settings`,props,{headers}  );
+    return response.data;
+}

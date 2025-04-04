@@ -2,21 +2,23 @@ import React, { useEffect, useRef, useState } from 'react';
 // import Menu from '../../components/Menu/Menu';
 // import { getSettings, updateSettings } from '../../services/SettingsService';
 // import Symbols from '../Settings/Symbols';
+import { useHistory } from 'react-router-dom';
 import Menu from '../../components/Menu/Menu';
-import { getSettings } from '../../services/SettingsService';
+import { getSettings, updateSettings } from '../../services/SettingsService';
 
 function Settings() {
-    const [settings, setSettings] = useState({
-        lastUpTime:''
-    })
 
+    //let lastUpTime = 0;
+    const inputTempoGuardaDias = useRef('');
 
     useEffect(()=>{
         const token = localStorage.getItem('token');
         
         getSettings(token).then(resp=> {
-            setSettings(resp)
-           // document.getElementById('email').removeAttribute('readOnly');
+            // setSettings(resp)
+            //console.log('resp',esp[0].lastUpTime);
+            inputTempoGuardaDias.current.value = resp[0].tempoGuardaDias;
+            //lastUpTime = resp[0].lastUpTime;
           }).catch(err=> {
             if (err.response && err.response.status === 401)
                     return history.push('admin/')
@@ -24,15 +26,15 @@ function Settings() {
           })
     }, [])
 
-    const inputEmail = useRef('');
-    const inputNewPassword = useRef('');
-    const inputConfirmPassword = useRef('');
-    const inputApiUrl = useRef('');
-    const inputStreamUrl = useRef('');
-    const inputAccessKey = useRef('');
-    const inputSecretKey = useRef('');
-
-    // const history = useHistory();
+    
+/*
+	name: String,
+	prefix: String,
+	sinopseForAI:String,
+	lastUpTime:Date,
+	tempoGuardaDias: Number,
+*/
+    const history = useHistory();
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -42,27 +44,20 @@ function Settings() {
     function onFormSubmit(event) {
         event.preventDefault();
 
-        if ((inputNewPassword.current.value || inputConfirmPassword.current.value)
-            && inputNewPassword.current.value !== inputConfirmPassword.current.value)
-            return setError(`The fields New Password and Confirm Password must be equal.`);
+        if ((inputTempoGuardaDias.current.value )
+            && inputTempoGuardaDias <= 0)
+            return setError(`Erro nos campos`);
 
-/*
+
         const token = localStorage.getItem("token");
         updateSettings({
-            email: inputEmail.current.value,
-            password: inputNewPassword.current.value ? inputNewPassword.current.value : null,
-            apiUrl: inputApiUrl.current.value,
-            streamUrl: inputStreamUrl.current.value,
-            accessKey: inputAccessKey.current.value,
-            secretKey: inputSecretKey.current.value ? inputSecretKey.current.value : null
+            tempoGuardaDias : inputTempoGuardaDias.current.value,
         }, token)
             .then(result => {
                 if (result) {
                     setError('');
-                    inputSecretKey.current.value = '';
-                    inputNewPassword.current.value = '';
-                    inputConfirmPassword.current.value = '';
-                    return setSuccess(`Settings saved successfully!`);
+                    //inputTempoGuardaDias.current.value = '';
+                    return setSuccess(`Salvo!`);
                 }
                 else {
                     setSuccess('');
@@ -71,9 +66,9 @@ function Settings() {
             })
             .catch(err => {
                 console.error(err.response ? err.response.data : err.message);
-                return setError(`Can't update the settings.`);
+                return setError(`Algo deu errado.`);
             })
-            */
+            
     }
 
     return (
@@ -89,22 +84,26 @@ function Settings() {
                 <div className="row">
                     <div className="col-12">
                         <div className="card card-body border-0 shadow mb-4">
-                            <form>
-                                <h2 className="h5 mb-4">General Info</h2>
-                                {settings.email}
+                            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3">                                
                                 <div className="row">
-                                    <div className="col-md-6 mb-3">
-                                        <div className="form-group">
-                                            <label htmlFor="email_">Email</label>
-                                            <input ref={inputEmail} className="form-control" id="email_"
-                                                   type="email" placeholder="name@company.com" autoComplete="off" />
+                                lastUpTime <br/>
+                                </div>
+                            </div>
+                            <form>
+                                
+                                <div className="row">
+                                    <div className="col-md-12 mb-5">
+                                        <div className="form-group d-flex align-items-center">
+                                            <label htmlFor="tempoGuardaDias_">Tempo em dias para expurgo do banco de dados</label>
+                                            <input ref={inputTempoGuardaDias} className="form-control" id="tempoGuardaDias_"
+                                                   type="number" placeholder="90" autoComplete="off" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap">
                                         <div className="col-sm-3">
-                                            <button className="btn btn-gray-800 mt-2 animate-up-2" type="submit" onClick={onFormSubmit}>Save all</button>
+                                            <button className="btn btn-gray-800 mt-2 animate-up-2" type="submit" onClick={onFormSubmit}>Salvar</button>
                                         </div>
                                         {
                                             error

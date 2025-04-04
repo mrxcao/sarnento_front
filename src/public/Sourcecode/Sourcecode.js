@@ -64,7 +64,7 @@ function SourceCode() {
           <p>Para mais informações, por favor, entre em contato</p>
           <h4>mais informações</h4>
           <ul>
-            <li><a href ="contato@sarnento.app.br" target="_blank">contato@sarnento.app.br</a></li>
+            <li><a href ="mailto:contato@sarnento.app.br" target="_blank">contato@sarnento.app.br</a></li>
             <li><a href="https://discord.bots.gg/bots/722913076344782858" target="_blank">discord.bots.gg Sarnento</a></li>
             <li><a href="https://discord.gg/zyfruVFVEW" target="_blank">Servidor de Suporte</a>  </li>
           </ul>
