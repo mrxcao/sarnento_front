@@ -3,15 +3,17 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 //import Dashboard from './private/Dashboard/Dashboard';
 //import Orders from './private/Orders/Orders';
 import NotFound from './components/Pages/NotFound';
-import Settings from './private/Settings/Settings';
 import Dashboard from './private/Dashboard/Dashboard';
+import Reacts from './private/Reacts/Reacts';
+import Settings from './private/Settings/Settings';
+
 import Comandos from './public/Comandos/Comandos';
-import Role from './public/Role/Role';
 import Comofunciona from './public/Comofunciona/Comofunciona';
 import Home from './public/Home/Home';
 import Login from './public/Login/Login';
-import Sourcecode from './public/Sourcecode/Sourcecode';
 import PrivacyPolicy from './public/PrivacyPolicy/PrivacyPolicy';
+import Role from './public/Role/Role';
+import Sourcecode from './public/Sourcecode/Sourcecode';
 import TermsOfService from './public/TermsOfService/TermsOfService';
 function Routes() {
 
@@ -60,13 +62,9 @@ function Routes() {
                 <PrivateRoute path="/dashboard">
                     <Dashboard />
                 </PrivateRoute>                
-                {/* <PrivateRoute path="/orders/:symbol?">
-                    <Orders />
-                </PrivateRoute>
-                <PrivateRoute path="/dashboard">
-                    <Dashboard />
-                </PrivateRoute>
-                */}
+                <PrivateRoute path="/reacts">
+                    <Reacts />
+                </PrivateRoute>    
 
                 <Route component={NotFound} />
             </Switch>
