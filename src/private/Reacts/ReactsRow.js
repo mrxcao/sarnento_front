@@ -63,22 +63,20 @@ trigger": {
 function DataRow(props){
     return (
      <tr>
-        <td className="text-gray-900 "> 
+        <td className="text-gray-900 py-1"> 
             {props.data.name}            
         </td>
-        <td className="text-gray-900 "> 
+        <td className="text-gray-900 py-1"> 
             {props.data.trigger.name}
         </td>
-        <td className="text-gray-900 "> 
+        <td className="text-gray-900 py-1"> 
             {props.data.do.name}
         </td>
-        <td > 
-            
+        <td className="text-gray-900 py-1">             
             <button key={props.data._id} id={props.data._id} 
-               className="btn btn-secondary  animate-up-2" >
+               className="btn p-0 border-0 bg-transparent" >
                 <img height="20" width="20" src="./img/icons/editar.svg" />
-            </button>
-            
+            </button>            
         </td>   
     </tr>  
     )

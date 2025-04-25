@@ -7,10 +7,19 @@ import ReactsRow from './ReactsRow';
 function reacts() {
 
     const [data, setData] = useState([])
-    const history = useHistory();
+    const [filterText, setFilterText] = useState('');
+    const [debouncedFilterText, setDebouncedFilterText] = useState('');
 
+    const history = useHistory();
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+ 
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedFilterText(filterText);
+        }, 300); // 300ms de delay
+        return () => clearTimeout(handler); // limpa o timeout anterior
+    }, [filterText]);
 
     useEffect(()=>{
         const token = localStorage.getItem('token');        
@@ -26,9 +35,10 @@ function reacts() {
             setSuccess('')
           })
     }, [])
-    
 
-
+    const filteredData = data.filter(item =>
+        item.name?.toLowerCase().includes(debouncedFilterText.toLowerCase())
+    );
 
     return (
         <React.Fragment>      
@@ -47,6 +57,17 @@ function reacts() {
                                 </div>
                             </div>                            
 
+                            <div className="row mb-3">
+                                <div className="col">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Filtrar por nome..."
+                                        value={filterText}
+                                        onChange={(e) => setFilterText(e.target.value)}
+                                    />
+                                </div>
+                            </div>
                             
                             <div className="row align-item-left ">
                                 <div className="col">                            
@@ -55,21 +76,26 @@ function reacts() {
                             </div>
                                   
                             <div className="table-responsive">
-                                <table className="table align-items-center table-flush">
+                                <table className="table table-hover align-items-center table-flush">
                                     <thead className="thead-light" >
                                         <tr>
-                                            <th className="border-bottom" scope="col"> Name</th>
-                                            <th className="border-bottom" scope="col"> trigger</th>
-                                            <th className="border-bottom" scope="col"> do</th>
-                                     
-                                            <th > - </th>
+                                            <th scope="col"> Name</th>
+                                            <th scope="col"> trigger</th>
+                                            <th scope="col"> do</th>                                     
+                                            <th scope="col">  </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        { data.map(item => <ReactsRow key={item.id} data={item} /> )}
+                                        {filteredData.map(item => (
+                                            <ReactsRow key={item.id} data={item} rowClassName="py-1" />
+                                        ))}
                                     </tbody>                                      
                                     <tfoot>
-
+                                        <tr>
+                                            <td colSpan="4" className="text-end">
+                                                <strong> {filteredData.length} registro(s)</strong>
+                                            </td>
+                                        </tr>
                                     </tfoot>
                                 </table>
                             </div>
@@ -81,15 +107,8 @@ function reacts() {
 
                 <div className="row">
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap">
-                        { error
-                                ? <div className="alert alert-danger mt-2 col-9 py-2">{error}</div>
-                                : <React.Fragment></React.Fragment>
-                        }
-                        {
-                            success
-                                ? <div className="alert alert-success mt-2 col-9 py-2">{success}</div>
-                                : <React.Fragment></React.Fragment>
-                        }
+                        {error && <div className="alert alert-danger mt-2 col-9 py-2">{error}</div>}
+                        {success && <div className="alert alert-success mt-2 col-9 py-2">{success}</div>}
                     </div>
                 </div>
 

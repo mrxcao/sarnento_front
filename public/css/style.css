@@ -214,3 +214,6 @@ body {
   h4 {
     color: #3a52bf;    
   }
+  .table td, .table th {
+    border-bottom: none !important;
+  }
