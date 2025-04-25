@@ -74,7 +74,10 @@ function DataRow(props){
         </td>
         <td className="text-gray-900 py-1">             
             <button key={props.data._id} id={props.data._id} 
-               className="btn p-0 border-0 bg-transparent" >
+               onClick={props.onEdit}
+               className="btn p-0 border-0 bg-transparent"
+               title="Editar"
+               >
                 <img height="20" width="20" src="./img/icons/editar.svg" />
             </button>            
         </td>   

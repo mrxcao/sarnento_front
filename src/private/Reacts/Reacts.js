@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Menu from '../../components/Menu/Menu';
 import { getReacts } from '../../services/reactsService';
+import ReactsItem from './ReactsItem';
 import ReactsRow from './ReactsRow';
 
 function reacts() {
@@ -13,6 +14,7 @@ function reacts() {
     const history = useHistory();
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [editingItem, setEditingItem] = useState(null);
  
     useEffect(() => {
         const handler = setTimeout(() => {
@@ -40,6 +42,20 @@ function reacts() {
         item.name?.toLowerCase().includes(debouncedFilterText.toLowerCase())
     );
 
+    const handleEdit = (item) => {
+        setEditingItem(item);
+      };
+      
+      const handleCancelEdit = () => {
+        setEditingItem(null);
+      };
+      
+      const handleSaveEdit = (updatedItem) => {
+        const newData = data.map(d => d._id === updatedItem._id ? updatedItem : d);
+        setData(newData);
+        setEditingItem(null);
+      };
+
     return (
         <React.Fragment>      
         <Menu />
@@ -56,6 +72,13 @@ function reacts() {
                                     </div>
                                 </div>
                             </div>                            
+
+                            <div className="row">
+                                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap">
+                                    {error && <div className="alert alert-danger mt-2 col-9 py-2">{error}</div>}
+                                    {success && <div className="alert alert-success mt-2 col-9 py-2">{success}</div>}
+                                </div>
+                            </div>
 
                             <div className="row mb-3">
                                 <div className="col">
@@ -87,7 +110,8 @@ function reacts() {
                                     </thead>
                                     <tbody>
                                         {filteredData.map(item => (
-                                            <ReactsRow key={item.id} data={item} rowClassName="py-1" />
+                                            <ReactsRow key={item.id} data={item} rowClassName="py-1" 
+                                                       onEdit={() => handleEdit(item)}/>
                                         ))}
                                     </tbody>                                      
                                     <tfoot>
@@ -105,12 +129,28 @@ function reacts() {
 
                 </div>
 
-                <div className="row">
-                    <div className="d-flex justify-content-between flex-wrap flex-md-nowrap">
-                        {error && <div className="alert alert-danger mt-2 col-9 py-2">{error}</div>}
-                        {success && <div className="alert alert-success mt-2 col-9 py-2">{success}</div>}
+                {editingItem && (
+                    <div className="modal d-block" tabIndex="-1" style={{ background: 'rgba(0,0,0,0.5)' }}>
+                        <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                            <h5 className="modal-title">Editar React</h5>
+                            <button type="button" className="btn-close" onClick={handleCancelEdit}></button>
+                            </div>
+                            <div className="modal-body">
+                            <ReactsItem
+                                item={editingItem}
+                                onCancel={handleCancelEdit}
+                                onSave={handleSaveEdit}
+                            />
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                </div>
+                )}
+
+
+
 
             </main>
         </React.Fragment>
